@@ -3,9 +3,14 @@ import java.util.HashMap;
 import model.DrinkItem;
 import model.FoodItem;
 import model.MenuItem;
-/* Displays and searches the restaurant menu. */
+/**
+ * Manages the restaurant menu.
+ * Provides methods to display, search, and retrieve menu items.
+ * Uses a HashMap to store menu items with their unique IDs.
+ */
 public class MenuService {
     private HashMap<Integer, MenuItem> menu = new HashMap<>();
+    // Initializes the menu with sample food and drink items.
     public MenuService() {
         // Add a few sample items to the menu.
         menu.put(1, new FoodItem(1, "Veg Burger", 90, "Fast Food"));
@@ -15,6 +20,7 @@ public class MenuService {
         menu.put(5, new DrinkItem(5, "Cold Coffee", 60, "Regular"));
         menu.put(6, new DrinkItem(6, "Lime Soda", 40, "Regular"));
     }
+    // Displays all available menu items.
 public void showMenu() {
     System.out.println("\n========== RESTAURANT MENU ==========");
     System.out.printf("%-5s %-20s %-14s %s%n",
@@ -29,7 +35,8 @@ public void showMenu() {
     System.out.println("-------------------------------------");
 }
     public MenuItem findItem(int id) { return menu.get(id); }
-   
+    
+   // Searches for menu items by name.
 public void searchItem(String name) {
     boolean found = false;
 
