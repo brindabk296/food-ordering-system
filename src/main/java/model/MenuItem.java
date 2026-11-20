@@ -14,11 +14,15 @@ public abstract class MenuItem {
     /**
      * Initializes a menu item with its ID, name, and price.
      */
-    public MenuItem(int id, String name, double price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
+public MenuItem(int id, String name, double price) {
+    if (id <= 0) {
+        throw new IllegalArgumentException("Item ID must be positive.");
     }
+
+    this.id = id;
+    this.name = name;
+    this.price = price;
+}
 
     // Returns the item ID.
     public int getId() {
