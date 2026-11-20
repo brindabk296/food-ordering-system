@@ -1,8 +1,8 @@
 package service;
 import java.util.HashMap;
-import model.MenuItem;
-import model.FoodItem;
 import model.DrinkItem;
+import model.FoodItem;
+import model.MenuItem;
 /* Displays and searches the restaurant menu. */
 public class MenuService {
     private HashMap<Integer, MenuItem> menu = new HashMap<>();
@@ -21,13 +21,27 @@ public class MenuService {
         for (MenuItem item : menu.values()) item.displayDetails();
     }
     public MenuItem findItem(int id) { return menu.get(id); }
-    public void searchItem(String name) {
-        boolean found = false;
-        for (MenuItem item : menu.values()) {
-            if (item.getName().toLowerCase().contains(name.toLowerCase())) {
-                item.displayDetails(); found = true;
-            }
-        }
-        if (!found) System.out.println("Item not found.");
+   
+public void searchItem(String name) {
+    boolean found = false;
+
+    if (name == null || name.trim().isEmpty()) {
+        System.out.println("Please enter an item name.");
+        return;
     }
+
+    String searchName = name.trim().toLowerCase();
+
+    for (MenuItem item : menu.values()) {
+        if (item.getName().toLowerCase().contains(searchName)) {
+            item.displayDetails();
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("Item not found.");
+    }
+}
+
 }
