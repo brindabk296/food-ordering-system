@@ -1,4 +1,6 @@
 package service;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import model.DrinkItem;
 import model.FoodItem;
@@ -21,6 +23,7 @@ public class MenuService {
         menu.put(6, new DrinkItem(6, "Lime Soda", 40, "Regular"));
     }
     // Displays all available menu items.
+// Displays all available menu items in ID order.
 public void showMenu() {
     System.out.println("\n========== RESTAURANT MENU ==========");
     System.out.printf("%-5s %-20s %-14s %s%n",
@@ -28,14 +31,17 @@ public void showMenu() {
 
     System.out.println("-------------------------------------");
 
-    for (MenuItem item : menu.values()) {
-        item.displayDetails();
+    ArrayList<Integer> itemIds = new ArrayList<>(menu.keySet());
+    Collections.sort(itemIds);
+
+    for (int id : itemIds) {
+        menu.get(id).displayDetails();
     }
 
     System.out.println("-------------------------------------");
 }
     public MenuItem findItem(int id) { return menu.get(id); }
-    
+
    // Searches for menu items by name.
 public void searchItem(String name) {
     boolean found = false;
