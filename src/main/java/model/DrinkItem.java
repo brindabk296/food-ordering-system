@@ -26,7 +26,7 @@ this.size = size.trim();
      */
     @Override
     public void displayDetails() {
-        System.out.printf("%-5d %-20s Rs. %-8.2f %s%n",
-                getId(), getName(), getPrice(), size);
+System.out.printf("%-5d %-20s Rs. %-8.2f Size: %s%n",
+        getId(), getName(), getPrice(), size);
     }
 }
