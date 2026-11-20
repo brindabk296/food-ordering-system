@@ -25,6 +25,9 @@ public abstract class MenuItem {
         if (name == null || name.trim().isEmpty()) {
     throw new IllegalArgumentException("Item name cannot be empty.");
 }
+if (price <= 0) {
+    throw new IllegalArgumentException("Item price must be greater than zero.");
+}
         this.id = id;
         this.name = name;
         this.price = price;
