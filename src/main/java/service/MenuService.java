@@ -54,7 +54,7 @@ public void searchItem(String name) {
     String searchName = name.trim().toLowerCase();
 
     for (MenuItem item : menu.values()) {
-        if (item.getName().toLowerCase().contains(searchName)) {
+if (item.getName().trim().toLowerCase().contains(searchName)) {
             item.displayDetails();
             found = true;
         }
