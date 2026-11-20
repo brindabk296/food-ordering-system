@@ -20,8 +20,11 @@ public abstract class MenuItem {
     public MenuItem(int id, String name, double price) {
         if (id <= 0) {
             throw new IllegalArgumentException("Item ID must be positive.");
+            
         }
-
+        if (name == null || name.trim().isEmpty()) {
+    throw new IllegalArgumentException("Item name cannot be empty.");
+}
         this.id = id;
         this.name = name;
         this.price = price;
