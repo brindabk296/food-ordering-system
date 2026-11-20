@@ -15,11 +15,19 @@ public class MenuService {
         menu.put(5, new DrinkItem(5, "Cold Coffee", 60, "Regular"));
         menu.put(6, new DrinkItem(6, "Lime Soda", 40, "Regular"));
     }
-    public void showMenu() {
-        System.out.println("\n------------- MENU -------------");
-        System.out.printf("%-5s %-20s %-14s %s%n", "ID", "Item", "Price", "Type");
-        for (MenuItem item : menu.values()) item.displayDetails();
+public void showMenu() {
+    System.out.println("\n========== RESTAURANT MENU ==========");
+    System.out.printf("%-5s %-20s %-14s %s%n",
+            "ID", "Item", "Price (Rs.)", "Category");
+
+    System.out.println("-------------------------------------");
+
+    for (MenuItem item : menu.values()) {
+        item.displayDetails();
     }
+
+    System.out.println("-------------------------------------");
+}
     public MenuItem findItem(int id) { return menu.get(id); }
    
 public void searchItem(String name) {
