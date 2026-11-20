@@ -1,14 +1,43 @@
+
 package model;
-/* Common details shared by all menu items. */
+
+/**
+ * Represents the common details shared by all menu items.
+ * FoodItem and DrinkItem inherit this class.
+ */
 public abstract class MenuItem {
+
     private int id;
     private String name;
     private double price;
+
+    /**
+     * Initializes a menu item with its ID, name, and price.
+     */
     public MenuItem(int id, String name, double price) {
-        this.id = id; this.name = name; this.price = price;
+        this.id = id;
+        this.name = name;
+        this.price = price;
     }
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public double getPrice() { return price; }
+
+    // Returns the item ID.
+    public int getId() {
+        return id;
+    }
+
+    // Returns the item name.
+    public String getName() {
+        return name;
+    }
+
+    // Returns the item price.
+    public double getPrice() {
+        return price;
+    }
+
+    /**
+     * Displays the details of the menu item.
+     * Each child class provides its own implementation.
+     */
     public abstract void displayDetails();
 }
