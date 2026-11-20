@@ -14,7 +14,11 @@ public class DrinkItem extends MenuItem {
      */
     public DrinkItem(int id, String name, double price, String size) {
         super(id, name, price);
-        this.size = size;
+        if (size == null || size.trim().isEmpty()) {
+    throw new IllegalArgumentException("Drink size cannot be empty.");
+}
+
+this.size = size.trim();
     }
 
     /**
